@@ -1,5 +1,15 @@
 (function($){
 $(function() {
+    
+    // TODO: check options, center map on current location
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
 
     var transport = new Thrift.Transport( "http://yii-geolocation-service.bwoester.c9.io/geolocationSampleApp/index.php?r=geolocation" );
     var protocol  = new Thrift.Protocol(transport);
